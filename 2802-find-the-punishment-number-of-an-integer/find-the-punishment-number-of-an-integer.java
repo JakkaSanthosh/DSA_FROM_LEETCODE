@@ -12,16 +12,15 @@ class Solution {
     static boolean punish(String s,int tar){
      if(s.equals("")&&tar==0) return true;
      if(tar<0) return false;
-     boolean ans=false;
+    
      for(int i=0;i<s.length();i++){
       String left=s.substring(0,i+1);
       String right=s.substring(i+1);
       int leftnum=Integer.parseInt(left);
       if(punish(right,tar-leftnum)){
-        ans=true;
-        break;
+       return true;
       }
      }
-      return ans;
+      return false;
     }
 }
