@@ -13,7 +13,7 @@ class Solution {
             else if("aeiouAEIOU".indexOf(c)!=-1&&"aeiouAEIOU".indexOf(d)==-1) p2--;
             else p1++;
         }
-        System.out.println("a".repeat(5));
+        //System.out.println("a".repeat(5));
           return sb.toString();   
     }
 }
