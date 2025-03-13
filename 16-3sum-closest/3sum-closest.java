@@ -20,6 +20,9 @@ class Solution {
            
         }
        } 
-     return mp.firstEntry().getValue(); 
+    for(var i:mp.keySet()){
+       return mp.get(i);
+    }
+    return -1;
     }
 }
