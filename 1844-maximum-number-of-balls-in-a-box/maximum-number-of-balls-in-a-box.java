@@ -3,10 +3,14 @@ class Solution {
         Map<Integer,Integer> mp=new HashMap<>();
         int max=0;
         while(low<=high){
+            if(low==high){
             insert(mp,low);
-            //insert(mp,high);
+            low++;}
+            else{
+            insert(mp,low);
+            insert(mp,high);
             low++;
-           // high--;
+            high--;}
         }
         for(var i:mp.values()){
             if(i>max) max=i;
