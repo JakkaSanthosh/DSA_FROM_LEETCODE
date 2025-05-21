@@ -8,17 +8,13 @@ class Solution {
             num /= 10;
         }
         Collections.sort(al);
-        String x = "", y = "";
+        int num1 = 0, num2 = 0;
         for (int i = 0; i < al.size(); i++) {
             if (i % 2 == 0)
-                x += al.get(i);
+                num1 = num1 * 10 + al.get(i);
             else
-                y += al.get(i);
+                num2 = num2 * 10 + al.get(i);
         }
-        if (x.equals(""))
-            x = "0";
-        if (y.equals(""))
-            y = "0";
-        return Integer.parseInt(x) + Integer.parseInt(y);
+        return num1 + num2;
     }
 }
