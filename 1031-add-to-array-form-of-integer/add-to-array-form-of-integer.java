@@ -1,17 +1,18 @@
-import java.math.BigInteger;
 class Solution {
     public List<Integer> addToArrayForm(int[] num, int k) {
-        List<Integer> al=new ArrayList<>();
-        String x=new String();
-        for(var i:num) x+=i;
-        BigInteger big=new BigInteger(x);
-        big=big.add(BigInteger.valueOf(k));
-        while(!big.equals(BigInteger.ZERO)){
-            int r=big.mod(BigInteger.TEN).intValue();
-            al.add(r);
-            big=big.divide(BigInteger.TEN);
+        List<Integer> result = new ArrayList<>();
+        int i = num.length - 1;
+        
+        while (i >= 0 || k > 0) {
+            if (i >= 0) {
+                k += num[i];
+                i--;
+            }
+            result.add(k % 10);
+            k /= 10;
         }
-        Collections.reverse(al);
-        return al;
+        
+        Collections.reverse(result);
+        return result;
     }
 }
