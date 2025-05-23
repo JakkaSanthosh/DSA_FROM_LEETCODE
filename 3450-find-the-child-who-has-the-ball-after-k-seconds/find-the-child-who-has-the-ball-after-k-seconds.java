@@ -1,0 +1,9 @@
+class Solution {
+    public int numberOfChild(int n, int k) {
+        n-=1;
+        int rounds=k/n;
+        int rem=k%n;
+        if(rounds%2==0) return  rem;
+        return n-rem;
+    }
+}
