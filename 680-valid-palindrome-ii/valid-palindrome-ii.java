@@ -5,10 +5,8 @@ class Solution {
             if(s.charAt(left)!=s.charAt(right)){
                 return checkPalindrome(s,left+1,right)||checkPalindrome(s,left,right-1);
             }
-            else{
                 left++;
-                right--;
-            }
+                right--;   
         }
         return true;
     }
