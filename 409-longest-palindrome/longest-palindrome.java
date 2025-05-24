@@ -8,7 +8,7 @@ class Solution {
         for(var i:mp.keySet()){
             if(mp.get(i)%2==0) ec+=mp.get(i);
             else{
-                ec+=(mp.get(i)/2)*2;
+                ec+=mp.get(i)-1;
                 oc++;
             }
         }
