@@ -18,6 +18,6 @@ class Solution {
             x+=a[i];
             if(i<a.length-1) x+=" ".repeat(spacecnt);
     }
-    if(rem!=0) x+=" ".repeat(rem);
+   x+=" ".repeat(rem);
     return x;
 }}
