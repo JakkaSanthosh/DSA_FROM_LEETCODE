@@ -1,8 +1,6 @@
 class Solution {
     public int rearrangeCharacters(String s, String target) {
         int min=99999999;
-        if(target.length()>s.length()) return 0;
-        if(target.equals(s)) return 1;
         Map<Character,Integer> mp=new HashMap<>();
         for(var i:s.toCharArray()){
            mp.put(i,1+mp.getOrDefault(i,0));
