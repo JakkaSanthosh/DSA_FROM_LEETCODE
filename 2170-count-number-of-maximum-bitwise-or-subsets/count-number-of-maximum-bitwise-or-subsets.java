@@ -9,7 +9,6 @@ class Solution {
             }
             al.add(ans);
         }
-        if(al.isEmpty()) return 0;
         Collections.sort(al);
         int max=al.get(al.size()-1);
         for(int i=al.size()-1;i>=0;i--){
