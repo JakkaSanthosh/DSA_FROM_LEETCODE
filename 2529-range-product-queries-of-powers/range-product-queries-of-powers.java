@@ -4,10 +4,10 @@ class Solution {
         int c = 0;
         while (n != 0) {
             if (checkBit(n, 0)) {
-                al.add((int) Math.pow(2, c));
+                al.add(1<<c);
             }
             c++;
-            n >>= 1;
+             n >>= 1;
         }
         int a[] = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
