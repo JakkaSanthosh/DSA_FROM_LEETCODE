@@ -16,15 +16,30 @@ class Solution {
         for(int i=1;i<=n;i++){
             if(vis[i]==0){
                 cnt++;
-                dfs(i,vis,adj);
+               // dfs(i,vis,adj);
+                bfs(i,vis,adj);
             }
         }
         return cnt;
     }
-    static void dfs(int node,int vis[],List<List<Integer>> adj){
+    // static void dfs(int node,int vis[],List<List<Integer>> adj){
+    //     vis[node]=1;
+    //     for(var i:adj.get(node)){
+    //         if(vis[i]==0) dfs(i,vis,adj);
+    //     }
+    // }
+    static void bfs(int node,int vis[],List<List<Integer>> adj){
+        Queue<Integer> q=new LinkedList<>();
+        q.add(node);
         vis[node]=1;
-        for(var i:adj.get(node)){
-            if(vis[i]==0) dfs(i,vis,adj);
+        while(!q.isEmpty()){
+           int curr=q.poll();
+           for(var i:adj.get(curr)){
+            if(vis[i]==0){
+                q.add(i);
+                vis[i]=1;
+            }
+           }
         }
     }
 }
