@@ -9,16 +9,24 @@ class Solution {
             mp.get(v).add(u);
         }
         int vis[]=new int[n];
-        return dfs(source,destination,vis,mp);
+       // return dfs(source,destination,vis,mp);
+        return bfs(source,destination,vis,mp);
     }
-    static boolean dfs(int src,int des,int[] vis,Map<Integer,Set<Integer>> mp){
-        if(src==des) return true;
-        vis[src]=1;
-        for(var i:mp.get(src)){
+    static boolean bfs(int src,int des,int[] vis,Map<Integer,Set<Integer>> mp){
+      Queue<Integer> q=new LinkedList<>();
+      if(src==des) return true;
+      q.add(src);
+      vis[src]=1;
+      while(!q.isEmpty()){
+        int curr=q.poll();
+        for(var i:mp.get(curr)){
+            if(i==des) return true;
             if(vis[i]==0){
-                if(dfs(i,des,vis,mp)) return true;
+                vis[i]=1;
+                q.add(i);
             }
         }
-        return false;
+      }
+      return false;
     }
 }
