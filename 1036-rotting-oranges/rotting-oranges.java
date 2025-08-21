@@ -19,7 +19,7 @@ class Solution {
                     vis[i][j]=2;
                     q.offer(new Pair(i,j,0));
                 }
-                else vis[i][j]=0;
+                else vis[i][j]=grid[i][j];
                 if(grid[i][j]==1) cntFresh++;
             }
         }
