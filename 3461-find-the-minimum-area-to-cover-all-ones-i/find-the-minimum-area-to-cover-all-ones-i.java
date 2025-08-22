@@ -1,21 +1,24 @@
 class Solution {
     public int minimumArea(int[][] grid) {
-       int sr=-1,sc=-1,lr=-1,lc=-1;
-        for(int i=0;i<grid.length;i++){
-           for(int j=0;j<grid[0].length;j++){
-             if(grid[i][j]==1){
-                if(sr==-1) sr=i;
-                if(sc==-1) sc=j;
-                else sc=Math.min(sc,j);
-                lr=i;
-                lc=Math.max(lc,j);
-             }
-           }
+        int startRow = -1, startCol = -1, lastRow = -1, lastCol = -1;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 1) {
+                    if (startRow == -1)
+                        startRow = i;
+                    if (startCol == -1)
+                        startCol = j;
+                    else
+                        startCol = Math.min(startCol, j);
+                    lastRow = i;
+                    lastCol = Math.max(lastCol, j);
+                }
+            }
         }
-        System.out.println(sr+" "+lr+" "+sc+" "+lc);
-        if(sr==-1) return -1;
-        int row=lr-sr+1;
-        int col=lc-sc+1;
-        return row*col;
+        if (startRow == -1)
+            return -1;
+        int row = lastRow - startRow + 1;
+        int col = lastCol - startCol + 1;
+        return row * col;
     }
 }
