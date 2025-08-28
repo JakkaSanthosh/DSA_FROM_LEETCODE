@@ -24,9 +24,6 @@ class Solution {
                 return mp.get(b) - mp.get(a);
             return a - b;
         });
-        List<Integer> res = new ArrayList<>();
-        for (int i = 0; i < k; i++)
-            res.add(al.get(i));
-        return res;
+        return al.subList(0,k);
     }
 }
