@@ -10,7 +10,7 @@ class Solution {
             mp.get(u).add(v);
             indegree[v]++;
         }
-        Queue<Integer> q = new LinkedList<>();
+        PriorityQueue<Integer> q = new PriorityQueue<>();
         for (int i = 0; i < numCourses; i++) {
             if (indegree[i] == 0)
                 q.offer(i);
