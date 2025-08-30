@@ -1,0 +1,36 @@
+public class Solution {
+    public bool Exist(char[][] board, string word) {
+        int m = board.Length, n = board[0].Length;
+        int[,] vis = new int[m,n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == word[0] && vis[i,j] == 0) {
+                    if (dfs(board, vis, word, 0, i, j))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    static bool dfs(char[][] board, int[,] vis, string s, int idx, int row, int col) {
+        vis[row,col] = 1;
+        if (idx == s.Length - 1)
+            return true;
+        int[] drow = { -1, 0, 1, 0 };
+        int[] dcol = { 0, 1, 0, -1 };
+        int m = board.Length, n = board[0].Length;
+        for (int i = 0; i < 4; i++) {
+            int nrow = row + drow[i];
+            int ncol = col + dcol[i];
+            if (nrow >= 0 && nrow < m && ncol >= 0 && ncol < n && vis[nrow,ncol] == 0
+                    && board[nrow][ncol] == s[idx+1]) {
+                if (dfs(board, vis, s, idx + 1, nrow, ncol))
+                    return true;
+            }
+        }
+         vis[row,col] = 0;
+        return false;
+    }
+}
+ 
