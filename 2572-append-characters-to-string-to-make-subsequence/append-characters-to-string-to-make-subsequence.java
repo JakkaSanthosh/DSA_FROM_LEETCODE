@@ -1,13 +1,11 @@
 class Solution {
     public int appendCharacters(String s, String t) {
-        for (int i = 0; i < t.length(); i++) {
-            if (!s.contains(t.charAt(i) + ""))
-                return t.length() - i;
-            else {
-                int idx = s.indexOf(t.charAt(i));
-                s = s.substring(idx + 1);
-            }
+        int i = 0, j = 0;
+        while (i < s.length() && j < t.length()) {
+            if (s.charAt(i) == t.charAt(j))
+                j++;
+            i++;
         }
-        return 0;
+        return t.length() - j;
     }
 }
