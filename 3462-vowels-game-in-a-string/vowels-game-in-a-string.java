@@ -5,8 +5,6 @@ class Solution {
             if ("AEIOUaeiou".contains(i + ""))
                 cnt++;
         }
-        System.out.println(cnt);
-       if(cnt==0) return false;
-       return true;
+        return cnt != 0;
     }
 }
