@@ -1,18 +1,18 @@
 class Solution {
     public int maxFreqSum(String s) {
-        Map<Character,Integer> v=new HashMap<>();
-        Map<Character,Integer> c=new HashMap<>();
-        for(var i:s.toCharArray()){
-            if("AEIOUaeiou".contains(i+"")) v.put(i,v.getOrDefault(i,0)+1);
-            else c.put(i,c.getOrDefault(i,0)+1);
+        int arr[] = new int[26];
+        for (var i : s.toCharArray()) {
+            int idx = i - 'a';
+            arr[idx]++;
         }
-        int k1=0,k2=0;
-      for(var i: v.values()){
-        if(i>k1) k1=i;
-      }
-      for(var i: c.values()){
-        if(i>k2) k2=i;
-      }
-      return k1+k2;
+        for(var i:arr) System.out.print(i+" ");
+        int maxVow = 0, maxCon = 0;
+        for (int i = 0; i < 26; i++) {
+            if (i == 0 || i == 4 || i == 8 || i == 14 || i == 20)
+                maxVow = Math.max(maxVow, arr[i]);
+            else
+                maxCon = Math.max(maxCon, arr[i]);
+        }
+        return maxVow + maxCon;
     }
 }
