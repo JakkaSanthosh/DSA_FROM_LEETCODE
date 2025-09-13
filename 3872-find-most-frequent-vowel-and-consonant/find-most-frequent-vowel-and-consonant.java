@@ -3,7 +3,9 @@ class Solution {
         Map<Character, Integer> mp = new HashMap<>();
         int maxVow = 0, maxCon = 0;
         for (var i : s.toCharArray()) {
-            mp.put(i, 1 + mp.getOrDefault(i, 0));
+            mp.put(i, 1 + mp.getOrDefault(i, 0)); 
+        }
+        for(var i:mp.keySet()){
             if ("aeiou".contains(i + ""))
                 maxVow = Math.max(maxVow, mp.get(i));
             else
