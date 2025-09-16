@@ -6,7 +6,7 @@ class Solution {
                 cnt++;
             else
                 cnt = 1;
-            sum = (int)(((sum%(1e9+7))+(cnt%(1e9+7)))%(1e9+7));
+            sum =(int)((sum+cnt)%(1e9+7));
         }
         return sum;
     }
