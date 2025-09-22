@@ -6,11 +6,7 @@ class Solution {
             min = Math.min(min, i);
             max = Math.max(max, i);
         }
-        long res = 0;
-        while (k > 0) {
-            res = res + max - min;
-            k--;
-        }
-        return res;
+        int diff = max - min;
+        return (long) diff * k;
     }
 }
