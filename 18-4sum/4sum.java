@@ -11,10 +11,10 @@ class Solution {
                 long sum=(long)nums[i]+nums[j]+nums[l]+nums[r];
                 if(sum==t){
                     al.add(Arrays.asList(nums[i],nums[j],nums[l],nums[r]));
+                    while(l<r&&nums[l]==nums[l+1]) l++;
+                    while(l<r&&nums[r]==nums[r-1]) r--;
                     l++;
                     r--;
-                    while(l<r&&nums[l]==nums[l-1]) l++;
-                    while(l<r&&nums[r]==nums[r+1]) r--;
                 }
                 else if(sum<t){
                     l++;
